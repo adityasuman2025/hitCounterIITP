@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://172.16.26.43/thesis/update_thesis.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <title>Thesis Upload</title>
+                <link rel="stylesheet" type="text/css" href="./Thesis Upload Sample Page_files/style.css">
+                <script>(function() {
+			// injected DOM script is not a content script anymore,
+			// it can modify objects and functions of the page
+			var _pushState = history.pushState;
+			history.pushState = function(state, title, url) {
+				_pushState.call(this, state, title, url);
+				window.dispatchEvent(
+					new CustomEvent('state-changed', { detail: url })
+				);
+			};
+			// repeat the above for replaceState too
+		})();</script><script>(function() {
+			// injected DOM script is not a content script anymore,
+			// it can modify objects and functions of the page
+			var _pushState = history.pushState;
+			history.pushState = function(state, title, url) {
+				_pushState.call(this, state, title, url);
+				window.dispatchEvent(
+					new CustomEvent('state-changed', { detail: url })
+				);
+			};
+			// repeat the above for replaceState too
+		})();</script><script>(function() {
+			// injected DOM script is not a content script anymore,
+			// it can modify objects and functions of the page
+			var _pushState = history.pushState;
+			history.pushState = function(state, title, url) {
+				_pushState.call(this, state, title, url);
+				window.dispatchEvent(
+					new CustomEvent('state-changed', { detail: url })
+				);
+			};
+			// repeat the above for replaceState too
+		})();</script></head>
+                <body data-gr-c-s-loaded="true">
+                <div class="header">
+                <h2>Thesis Information</h2>
+                </div>
+                <table align="right">
+                <tbody><tr>
+                <td><table align="right" border="8"><tbody><tr><td><a href="http://172.16.26.43/thesis/logout.php">LOGOUT</a></td></tr></tbody></table>
+                </td></tr></tbody></table>
+                <form name="register" id="upload" method="post" action="http://172.16.26.43/thesis/upload_thesis.php" enctype="multipart/form-data">
+                                <div class="input-group">
+                <label>RollNo * (Autofilled) </label>
+                <input type="text" name="rollno" pattern="[A-Za-z0-9]+" style="background-color:Grey color:Black " required="" value="308" readonly="">
+                </div>
+                <div class="input-group">
+                <label>Supervisor Name*</label>
+                <input type="text" name="supervisor" pattern="[A-Za-z.\s]+" required="" value="Mayank">
+                </div>
+                <div class="input-group">
+          <label>Supervisor IITP Email ID*</label>
+          <input type="email" name="semail" pattern=".+@iitp.ac.in" required="" title="Please enter valid iitp email id" value="mayank265@iitp.ac.in">
+        </div>
+                <div class="input-group">
+                <label>Co-Supervisor Name</label>
+                <input type="text" name="cosupervisor" pattern="[A-Za-z.\s]+" value="">
+                </div>
+                <div class="input-group">
+          <label>Co-Supervisor IITP Email ID</label>
+          <input type="email" name="cemail" pattern=".+@iitp.ac.in" title="Please enter valid iitp email id" value="">
+        </div>
+                <div class="input-group">
+                <label>Thesis Title*</label>
+                <input type="text" name="thesis_title" required="" value="asda">
+                </div>
+        <div class="input-group">
+                <label>Abstract*</label>
+        <textarea name="abstract" style="width:550px;height:250px;" required="">asdasd</textarea>
+                </div>
+        <div class="input-group">
+                <label>Keyword 1*</label>
+                <input type="text" name="keyword_1" required="" value="asdsa">
+                </div>
+       <div class="input-group">
+                <label>Keyword 2*</label>
+                <input type="text" name="keyword_2" required="" value="asd">
+                </div>
+       <div class="input-group">
+                <label>Keyword 3*</label>
+                <input type="text" name="keyword_3" required="" value="asd">
+                </div>
+       <div class="input-group">
+                <label>Keyword 4*</label>
+                <input type="text" name="keyword_4" required="" value="asd">
+                </div>
+
+  <div class="input-group">
+                Upload Thesis (Only PDF files are allowed. Existing thesis will be overwritten) :<br>
+                <input type="file" name="file1" accept="application/pdf" required="">
+                </div>
+                <div class="input-group">
+                Upload Scanned Certificate (Only PDF files are allowed. Existing Ceritificate will be overwritten) :<br>
+                <input type="file" name="file2" accept="application/pdf" required="">
+                </div>
+                <div class="input-group">
+                <button type="submit" class="btn" name="reg_user">Upload Now</button>
+                </div>
+                </form>
+                
+                
+                <div><div style="display: none; position: fixed; top: 30px; width: auto; max-width: 100%; text-align: center; left: 50%; transform: translateX(-50%); z-index: 99999999;"><div style="display: inline-block; font-size: 14px; font-weight: bold; border: 1px solid rgb(240, 195, 109); background-color: rgb(249, 237, 190); padding: 0px 10px; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;"></div></div></div></body></html>
