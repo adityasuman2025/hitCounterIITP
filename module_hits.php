@@ -3,11 +3,17 @@
 
 	if( !$isSomeOneLogged )
 		die("wrong attempt is made to access this page");
+
+	if( isset($_POST['module_name']) ) {
+		$module_name = $_POST['module_name'];
+	} else {
+		die("wrong attempt is made to access this page");		
+	}
 ?>
 
 <html>
 	<head>
-		<title>Admin | <?php echo $project_title; ?></title>
+		<title><?php echo $module_name . " Hits | " . $project_title; ?></title>
 
 		<link href="css/bootstrap.min.css" rel="stylesheet"/>
 		<link href="css/style.css" rel="stylesheet"/>
@@ -26,7 +32,7 @@
 		<nav class="navbar navbar-inverse">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      	<a class="navbar-brand">
+		      	<a class="navbar-brand" href="admin.php">
 		      		<div class="row">		      	
 		      			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 x_m-p header_bar_title">
 		      				<img src="img/logo.png" class="" />
@@ -87,26 +93,29 @@
 			
 		<!------tab content display area-------->
 			<div class="row table_card">
+				<center><h2 style="color: black; "><?php echo $module_name; ?></h2></center>
 				<table class="table table-striped">
 					<thead class="thead-dark notif_table_title person_entry_list_title">
 						<tr>
 					    	<th scope="col">Sl.</th>
-					    	<th scope="col">Module Name</th>
-					    	<th scope="col">Total Hits</th>
+					    	<th scope="col">Accessed By</th>
+					    	<th scope="col">Accessed On</th>
 					    </tr>
 					</thead>
 					<tbody class="notif_table_data">
 						<?php
-							include_once("php/get_all_modules_hit_counter.php");
+							include_once("php/get_module_hit_counter.php");
 
 							foreach ( $data_array as $key => $row ) {
-								$module_name = $row['module_name'];
-								$hit_count = $row['hit_count'];
+								$accessed_by = $row['accessed_by'];
+								$accessed_on = $row['accessed_on'];
+
+								$date = date_create( $accessed_on );
 						?>
-							<tr class="module_btn" style="cursor: pointer;">
+							<tr>
 						    	<th scope="col"><?php echo $key + 1; ?></th>
-						    	<th scope="col" class="module_name"><?php echo $module_name; ?></th>
-						    	<th scope="col"><?php echo $hit_count; ?></th>
+						    	<th scope="col"><?php echo $accessed_by; ?></th>
+						    	<th scope="col"><?php echo date_format( $date,"d F Y g:i A" ); ?></th>
 						    </tr>
 						<?php
 							}
@@ -127,18 +136,6 @@
 				{
 					location.href = "index.php";
 				});
-			});
-
-		//on clicking on any module name
-			$('.module_btn').on("click", function()
-			{
-				var module_name = $(this).find(".module_name").text().trim();
-				// console.log(module_name);
-
-				$.redirect("module_hits.php",
-		        {
-		            module_name: module_name
-		        }, "POST");
 			});
 		</script>
 	</body>
