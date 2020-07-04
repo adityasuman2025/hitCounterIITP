@@ -1,7 +1,7 @@
 <?php
 	include_once "connect_db.php";
 
-	$mysql_qry   = "SELECT * FROM thesis_uploader_server_list ORDER BY server_sr";
+	$mysql_qry   = "SELECT * FROM hit_counter_server_list ORDER BY server_sr";
 	
 	$data_array = array();
 	if( $result = @mysqli_query($connect_link ,$mysql_qry) ) {

@@ -54,7 +54,7 @@
 				var server_name = (arr[i]['server_name']);
 				var domain_name_short = (arr[i]['domain_name_short']);	
 
-				html += '<input class="radio_input" type="radio" name="selected_server" value="' + domain_ip + '" /> ' + server_name + " ";
+				html += '<input class="radio_input" type="radio" name="selected_server" value="' + domain_ip + '" checked /> ' + server_name + " ";
 			}	
 
 			$('#mail_server_list').html(html);
@@ -97,13 +97,9 @@
 
 							$('#error1').html('<br/>You are not registered on the portal - <a href="' + registerURL + '" target="_blank" style="color: cyan; text-decoration: none; ">' + registerURL + '</a> <br />Please register and sign in back to this portal.').css("color", "#f1f1f1");
 						}
-						else if(data == 1) //stud
+						else if(data == 2)
 						{
-							location.href = "student.php";
-						}
-						else if(data == 2) //prof
-						{
-							location.href = "prof.php";
+							$('#error1').text("You are not authorized to login");	
 						}
 						else if(data == 3) //admin
 						{
