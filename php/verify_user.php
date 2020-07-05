@@ -29,8 +29,8 @@
 			else
 				imap_close($pop);
 
-		//inserting user's hit in db (adityas_module_hit_counter)
-			$hit_counter_qry = "INSERT INTO `adityas_module_hit_counter` (`module_name`, `accessed_by`) VALUES ('Hit Counter', '$user')";
+		//inserting user's hit in db
+			$hit_counter_qry = "INSERT INTO `hit_counter_hits` (`module_name`, `accessed_by`) VALUES ('Hit Counter', '$user')";
 			@mysqli_query($connect_link ,$hit_counter_qry);
 
 		//checking if user is admin
