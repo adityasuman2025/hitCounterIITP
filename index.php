@@ -7,6 +7,8 @@
 	<link href="css/login.css" rel="stylesheet"/>
 	<link rel="icon" href="img/logo.png" />
 	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/crypto-js.js"></script>
+	<script type="text/javascript" src="js/Encryption.js"></script>
 
 	<meta name="viewport" content="width=device-width, initial-scale= 1">	
 	<meta charset="utf-8">
@@ -74,7 +76,11 @@
 					$('#error1').text("");
 					$('#error1').html("<img class=\"gif_loader\" src=\"img/loaders2.gif\">");
 
-					$.post('php/verify_user.php', {user_login: user_login, user_password: user_password, selected_server:selected_server}, function(data)
+					const passwordEncryptionKeyword = "<?php echo $passwordEncryptionKeyword; ?>";
+					const encryption = new Encryption();
+					const encrypted_password = encryption.encrypt(user_password, passwordEncryptionKeyword);
+					
+					$.post('php/verify_user.php', {user_login: user_login, user_password: encrypted_password, selected_server:selected_server}, function(data)
 					{
 						console.log(data);
 						

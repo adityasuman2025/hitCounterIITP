@@ -1,10 +1,16 @@
 <?php
+	include_once 'universal.php';
 	include_once "connect_db.php";
+	include_once 'Encryption.php';
 
 	if(isset($_POST["selected_server"]) && isset($_POST["user_login"]) && isset($_POST["user_password"]))
 	{
 		$mailhost = $_POST["selected_server"];
-		$passwd   = $_POST["user_password"];
+	
+	//decrypting password
+		$encrypted_password   = $_POST["user_password"];
+		$Encryption = new Encryption();
+		$passwd = $Encryption->decrypt($encrypted_password, $passwordEncryptionKeyword);
 		
 	//accepting full or short email both
 		$user     = $_POST["user_login"];

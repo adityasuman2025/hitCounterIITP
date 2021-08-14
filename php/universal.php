@@ -20,6 +20,8 @@
 		$photo_folder = "../key_issue_api/stud_img/";
 	}
 
+	$passwordEncryptionKeyword = "MNgo_Bhemu";
+
 	$isSomeOneLogged = false;
 	if( isset($_COOKIE['hit_counter_logged_admin_id']) ) {
 		$isSomeOneLogged = true;
